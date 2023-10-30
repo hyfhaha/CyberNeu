@@ -19,12 +19,12 @@
 #define random(x)(rand()%x)
 using namespace std;
 struct User{
-	int level;		//µÈ¼¶
-	int pp;			//ÌåÁ¦
-	int money;		//½ğÇ®
-	int exp;		//¾­Ñé
-	int grade;		//Ñ§·Ö
-	string name;	//ĞÕÃû
+	int level;		//ç­‰çº§
+	int pp;			//ä½“åŠ›
+	int money;		//é‡‘é’±
+	int exp;		//ç»éªŒ
+	int grade;		//å­¦åˆ†
+	string name;	//å§“å
 }user;
 void cls(){system("cls");}
 void eout(string s,int p=10){
@@ -36,9 +36,9 @@ void eout(string s,int p=10){
 		} else {
 			cout<<"|";
 			if(!kbhit()) Sleep(p);
-			cout<<"©§";
+			cout<<"â”ƒ";
 			if(!kbhit()) Sleep(p);
-			cout<<"\b\b";cout<<"¨‚";
+			cout<<"\b\b";cout<<"â–Š";
 			if(!kbhit()) Sleep(p);
 			if(kbhit()&&i%3==0)getch();
 			if(s[i]<0){
@@ -53,54 +53,39 @@ void eout(string s,int p=10){
 		Sleep(p);
 	}cout<<" \b";
 }
-void saveGame(){
-    ofstream file("saver.dat",ios::out|ios::binary);	//´ò¿ªÎÄ¼ş
-    file.write((char*)&user,sizeof(user));				//Ğ´Èë
-    file.close();                                       //¹Ø±Õ
-}
+
 void Save(){
-	ofstream fout("saver.txt");
-	cout<<"ÕıÔÚÎªÄã´æµµ¡­¡­"<<endl;
+	ofstream fout("saver.dat");
+	cout<<"æ­£åœ¨ä¸ºä½ å­˜æ¡£â€¦â€¦"<<endl;
 	fout<<user.name<<endl;
 	system("cls"); 
 	fout.close();
-	//saveGame();
-}
-void readGame(){
-	ifstream file("saver.dat",ios::in|ios::binary);		//´ò¿ª
-	if(!file){											//ÅĞ¶ÏÎÄ¼şÊÇ·ñ²»´æÔÚ
-		cout<<"error"<<endl;							//²»´æÔÚ¾Í±¨´í
-		return ;
-	}
-	file.read((char*)&user,sizeof(user));				//¶ÁÈë
-	file.close();										//¹Ø±ÕÎÄ¼ş
 }
 void Read(){
-	ifstream fin("saver.txt");
-	cout<<"ÕıÔÚÎªÄã¶Áµµ¡­¡­"<<endl;
+	ifstream fin("saver.dat");
+	cout<<"æ­£åœ¨ä¸ºä½ è¯»æ¡£â€¦â€¦"<<endl;
 	getline(fin,user.name);
 	Sleep(1000);
 	system("cls");
 	fin.close();
-	//readGame();
 }
 void undone(){
 	system("cls");
-	eout("¸ÃÄ£¿éÎ´¿ªÆô");
+	eout("è¯¥æ¨¡å—æœªå¼€å¯");
 	getch(); system("cls");
 }
 void update(){
 	system("cls");
-	eout("CyberNeu ¸üĞÂ¼ò½é£º }");
-	eout("CyberNeu ÒÔÔ­NHOI Ë®ÓÑÍÅ¿ª·¢µÄOIbox Îª»ù´¡½øĞĞÖØ¹¹ºÍ¸Ä½ø }"); 
-	eout("V1.0 »ù±¾½á¹¹µÄ¹¹½¨ }");
+	eout("CyberNeu æ›´æ–°ç®€ä»‹ï¼š }");
+	eout("CyberNeu ä»¥åŸNHOI æ°´å‹å›¢å¼€å‘çš„OIbox ä¸ºåŸºç¡€è¿›è¡Œé‡æ„å’Œæ”¹è¿› }"); 
+	eout("V1.0 åŸºæœ¬ç»“æ„çš„æ„å»º }");
 	getch(); system("cls");
 }
 void HTML(){bool t=0;string s="https://";
 	while(!t){
 		system("cls");
-		cout<<"1.¶«´ó¹ÙÍø \n2.ÊıÑ§Ìâ¿â \n3.Ä½¿ÎMOOC \n4.ÊıÑ§¹¤¾ßÏä \n5.ÊıÑ§»æÍ¼ \n6.IP¿ØÖÆÍø¹Ø \nÆäËûÇëÊäÈëÍøÕ¾(ÒÑ¼Óhttps://)\n0ÍË³ö\n"<<endl;
-		eout("ÇëÊäÈëÍøÖ·±àºÅ£º }");
+		cout<<"1.ä¸œå¤§å®˜ç½‘ \n2.æ•°å­¦é¢˜åº“ \n3.æ…•è¯¾MOOC \n4.æ•°å­¦å·¥å…·ç®± \n5.æ•°å­¦ç»˜å›¾ \n6.IPæ§åˆ¶ç½‘å…³ \nå…¶ä»–è¯·è¾“å…¥ç½‘ç«™(å·²åŠ https://)\n0é€€å‡º\n"<<endl;
+		eout("è¯·è¾“å…¥ç½‘å€ç¼–å·ï¼š }");
 		string in;char input[10001];
 		cin>>in;
 		switch(in[0]){
@@ -126,8 +111,8 @@ void TIME(){
 }
 void Modifyfile(){
 	string name;
-	eout("ÇëĞŞ¸Äµµ°¸(Èô²»ĞŞ¸Ä¿ÉÖ±½Ó»Ø³µ) }");
-	cout<<"ĞÕÃû£º"<<endl;getline(cin,name);
+	eout("è¯·ä¿®æ”¹æ¡£æ¡ˆ(è‹¥ä¸ä¿®æ”¹å¯ç›´æ¥å›è½¦) }");
+	cout<<"å§“åï¼š"<<endl;getline(cin,name);
 	if(!name.size())cout<<"no";else user.name=name;
 	Save();
 }
@@ -142,8 +127,8 @@ void Mygoods(){
 }
 void Living(){
 	system("cls");
-	eout("Òª×öÊ²Ã´ }");
-	cout<<"1.Ë¯¾õ \n2.ºÍÉáÓÑ½»Ì¸ \n3.Ê¹ÓÃÎïÆ· \nÊäÈëÆäËûÍË³ö";
+	eout("è¦åšä»€ä¹ˆ }");
+	cout<<"1.ç¡è§‰ \n2.å’Œèˆå‹äº¤è°ˆ \n3.ä½¿ç”¨ç‰©å“ \nè¾“å…¥å…¶ä»–é€€å‡º";
 	char c=getch();
 	if(c=='1'){
 		Sleeptime();
@@ -168,14 +153,14 @@ void Lake(){
 	undone();
 }
 void Move(){
-	eout("ĞĞ½øÖĞ¡­¡­¡­¡­ }",30);
+	eout("è¡Œè¿›ä¸­â€¦â€¦â€¦â€¦ }",30);
 	cls();
 }
 void Map(){
 	//undone();
 	system("cls");
-	eout("¿ÉÒÔÇ°ÍùµÄµØµã£º }");
-	cout<<"1.ËŞÉá \n2.½ÌÑ§Â¥ \n3.·¹ÌÃ \n4.²Ù³¡ \n5.Ğ¡ÄÏºş \n";
+	eout("å¯ä»¥å‰å¾€çš„åœ°ç‚¹ï¼š }");
+	cout<<"1.å®¿èˆ \n2.æ•™å­¦æ¥¼ \n3.é¥­å ‚ \n4.æ“åœº \n5.å°å—æ¹– \n";
 	char c=getch();Move();
 	if(c=='1') {
 		Living();
@@ -194,17 +179,18 @@ void Map(){
 	}
 }
 void Queryfile(){
-	cout<<"ĞÕÃû£º"<<user.name<<endl;
+	cout<<"å§“åï¼š"<<user.name<<endl;
 	getch();
 	system("cls");
 }
 void School(){
 //	undone();return ;
+	cls();
 	Read();
 	while(1){
 		system("cls");
 		//Read();
-		eout("1.ĞŞ¸Äµµ°¸ }2.µØÍ¼ }3.²é¿´ÈËÎï }4.ÍË³ö }");
+		eout("1.ä¿®æ”¹æ¡£æ¡ˆ }2.åœ°å›¾ }3.æŸ¥çœ‹äººç‰© }4.é€€å‡º }");
 		char c=getch();
 		if(c=='1') {
 			Modifyfile();
@@ -221,9 +207,9 @@ void School(){
 void logo(){
 	cout<<"                          ....................... .,]OOO[[[[[[[[[[/OO]]. ......................."<<endl;
 	cout<<"                          ....................,]O/`... .]`......... ..../O/` ..................."<<endl;
-	cout<<"                          .................,O/`.......@±±O].......,´ó......,/O`................."<<endl;
+	cout<<"                          .................,O/`.......@åŒ—O].......,å¤§......,/O`................."<<endl;
 	cout<<"                          .............../OO`.........O` ...   .... /^ ........//`.............."<<endl;
-	cout<<"                          .............//..=@¶«]`......****....****........OO@Ñ§@/O`............"<<endl;
+	cout<<"                          .............//..=@ä¸œ]`......****....****........OO@å­¦@/O`............"<<endl;
 	cout<<"                          ...........=O....=O@@`..**..]O@@@@@@@@@@@]`.**...=@@,@...//..........."<<endl;
 	cout<<"                          ..........O^.......,.**.]@@@@@@@@@@@@@@@@@@@@/.*,O`,`.....,O`........."<<endl;
 	cout<<"                          ........,O`........**,@@@@@@@@@@@@@@@@@@@@@@@@@@`.*........./^........"<<endl;
@@ -254,16 +240,16 @@ void logo(){
 void init(){
 	system("color 17");
 	logo();
-	eout("»¶Ó­À´µ½Èü²©¶«´ó }");Sleep(1000);
-	eout("ÕıÔÚÈëÇÖ£º ¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨|¨| }");
-	eout("°´ÈÎÒâ¼ü½øÈë");getch();
+	eout("æ¬¢è¿æ¥åˆ°èµ›åšä¸œå¤§ }");Sleep(1000);
+	eout("æ­£åœ¨å…¥ä¾µï¼š â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–…â–… }");
+	eout("æŒ‰ä»»æ„é”®è¿›å…¥");getch();
 	system("cls");
 }
 void menu(){
 	while(1){
 		system("cls");
 		cout<<"CyberNeu V1.0[MainMenu] "<<endl;
-		cout<<"0.¸üĞÂËµÃ÷ 1.½øÈëÈü²©Ğ£Ô° 2.´ò¿ªÍøÒ³"<<endl;
+		cout<<"0.æ›´æ–°è¯´æ˜ 1.è¿›å…¥èµ›åšæ ¡å›­ 2.æ‰“å¼€ç½‘é¡µ"<<endl;
 		char c=getch();
 		if(c=='0')update();
 		if(c=='1')School();
@@ -272,9 +258,6 @@ void menu(){
 	}
 }
 int main(){
-	fstream _file;
-    _file.open("saver.txt", ios::in);
-    if(!_file){printf("no\n");return 0;}
 	init();
 	menu();
 	update();
