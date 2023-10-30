@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#include<iostream>
 #include<iomanip>
 #include<sstream>
 #include<fstream>
@@ -8,14 +7,9 @@
 #include<stdio.h>
 #include<windows.h>
 #include<bits/fstream.tcc>
-#include<algorithm>
-#include<string>
 #include<ctime>
 #include<conio.h>
 #include<time.h>
-#include<cmath>
-#include<queue>
-#include<stack>
 #define random(x)(rand()%x)
 using namespace std;
 struct User{
